@@ -89,7 +89,6 @@ body {
 }
 
 .aboutmecontent{
-    position: absolute;
     left: 45%;
     transform: translateX(-45%);
 }
