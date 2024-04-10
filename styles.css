@@ -73,9 +73,7 @@
 }
 
 .container {
-    position: absolute;
-    left: 45%;
-    transform: translateX(-45%);
+    text-align: center;
 }
 
 
@@ -85,13 +83,13 @@ body {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
-.aboutmecontent{
-    text-align: left;
-}
-
 .bestgirl{
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+.aboutmecontent{
+    text-align: left;
 }
