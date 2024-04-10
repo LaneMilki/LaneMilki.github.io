@@ -86,6 +86,7 @@ body {
 }
 
 .aboutmecontent{
+    text-align: left;
     left: 45%;
     position: relative;
 }
