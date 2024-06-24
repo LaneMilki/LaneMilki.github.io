@@ -88,6 +88,9 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    height: 350px;
+    width: 350px;
+    image-rendering: auto;
 }
 
 .content{
