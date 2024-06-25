@@ -25,20 +25,32 @@
         </div>
     </nav>
     <h1> Automating The New User Accoutn Creation Process </h1>
-    <h2> The Background </h2>
-    <p> I've previously been hired to conduct some work for a MSP (Managed Service Provider), one of biggest delays within the MSP day to day operations was user account creation
-        currently the method in which they created and built account was far too slow and inconvenient. For context the client in this case had a hybrid windows environment in which 
-        accounts were created on-premis in active directory and then manually imported via exchange on-prem to Office365 via remote move migration.  
-    
-        After asking around at the MSP I've found that the Azure space was underutilised, and that scripting wasn't a common practice amongst the sysadmins
-        (Batch files and basic ps1's were used and deployed via GPO but nothing else). So I started to optimise, I created via some classic Azure Automation.  
+    <h2>The Background</h2>
+    <p>I've previously been hired to conduct some work for an MSP (Managed Service Provider). One of the biggest delays within the MSP day-to-day operations was user account creation.
+        Currently, the method in which they created and built accounts was far too slow and inconvenient. For context, the client in this case had a hybrid Windows environment in which 
+        accounts were created on-premises in Active Directory and then manually imported via Exchange on-prem to Office365 via remote move migration.
+        
+        After asking around at the MSP, I found that the Azure space was underutilized and that scripting wasn't a common practice amongst the sysadmins
+        (Batch files and basic PS1 scripts were used and deployed via GPO but nothing else). So I started to optimize; I created some classic Azure Automation.  
     </p>
-    <h2> Resource Group Creation + Automation Worker </h2>  
-    <p> Placeholder </p>
-
-    <h2> Configuring Hybrid Worker Groups</h2>
-    <p> Placeholder </p>
-
+    
+    <h2>Resource Group Creation + Automation Worker</h2>  
+    <p>Obviously, to get started you will need a pre-existing subscription configured onto the tenancy. After navigating to <a href="https://portal.azure.com">Azure</a>, 
+        you should be able to directly select or search Resource Groups and then select "CREATE". Pick a region that matches where the tenancy operations are being hosted, and pick a suitable resource group name.
+        You will then ensure that the resource group is under the correct subscription plan. Following that, you will be prompted to create tags but that is irrelevant at this point in time.
+        
+        Creating the automation account is also quite simple, with the process involving you directly navigating to the "Create a resource" section again in Azure, and directly searching "Automation," selecting the group,
+        and entering the automation account name, connecting it to the correct resource group (that was previously created) + Subscription and ensuring that the region also remains consistent. 
+        You will then be prompted to select a System assigned or User assigned managed identity. You can initially proceed without the creation of a managed identity. However, if you would like to securely grant permissions to the automation worker
+        to authenticate to any Office 365/Azure functionality (outside of the resource group), then you will need to create one (I will go into more detail about this further down in this article).
+    </p>
+    
+    <h2>Configuring Hybrid Worker Groups</h2>
+    <p>Following the full configuration of the automation worker, we will still need to set up the physical hybrid worker group that will allow you to execute commands on-premises and in the cloud simultaneously.
+        In this example, I configured an automation worker via Azure Arc-enabled servers. This was quite a straightforward process which can be directly followed <a href="https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview">HERE</a>.
+        After following the steps and confirming that the server exists as an entity within the Azure tenancy, we can create the hybrid automation worker directly.
+    </p>
+    
     <h2> Runbooks + Managed Identity Authentication</h2>
     <p> Placeholder</p>
 
